@@ -41,4 +41,6 @@ final class Person_in_charge extends User {
         $this->badge_number = $badge_number;
     }
 
+
+
 }

@@ -13,6 +13,26 @@ final class FLight_passenger {
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private int $id_list;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Ticket")
+     * @ORM\JoinColumn(name="num_ticket", referencedColumnName="$num_ticket")
+     */
+    private Ticket $num_ticket;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="FLight")
+     * @ORM\JoinColumn(name="id_flight", referencedColumnName="$id_flight")
+     */
+    private Flight $id_flight;
+    
+    private array $list_passenger = [] ;
+
+    public function __construct(Flight $id_flight){
+    }
+
+
+       
     
 }

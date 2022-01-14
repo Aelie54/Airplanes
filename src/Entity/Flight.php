@@ -14,7 +14,7 @@ final class Flight {
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private int $id_flight;
 
     /**
      * 
@@ -33,9 +33,9 @@ final class Flight {
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId_flight()
     {
-        return $this->id;
+        return $this->id_flight;
     }
 
     /**
@@ -79,15 +79,19 @@ final class Flight {
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Aeroport")
+     * @ORM\ManyToMany(targetEntity="Aeroport")
      * @ORM\JoinColumn(name="id_aeroport", referencedColumnName="$id")
      */
-    private Reservation $number_reservation ;
+    private aeroport $id ;
 
 
-    public function __construct (int $id, int $id_beginning, int $id_finally, \datetime $beginning, \datetime $finally){
+    public function __construct (int $id_flight, aeroport $id_beginning, aeroport $id_finally, \DateTime $beginning, \DateTime $finally){
 
-        
+        $this -> id_flight = $id_flight;
+        $this-> id_beginning = $id_beginning;
+        $this-> id_finally = $id_finally;
+        $this-> beginning = $beginning;
+        $this-> finally = $finally;
 
     }
 
