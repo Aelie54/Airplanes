@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM ;
 
-/** @ORM\Entity  */
+/** @ORM\Entity  
+ * 
+*/
 final class Reservation {
 
     /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private int $number_reservation;
@@ -17,5 +21,41 @@ final class Reservation {
      * @ORM\Column(type ="datetime")
      */
     private \DateTime $sell;
+    
+
+    /**
+     * Get the value of number_reservation
+     */ 
+    public function getNumber_reservation()
+    {
+        return $this->number_reservation;
+    }
+
+    /**
+     * Get the value of sell
+     */ 
+    public function getSell()
+    {
+        return $this->sell;
+    }
+
+    /**
+     * Set the value of sell
+     *
+     * @return  self
+     */ 
+    public function setSell($sell)
+    {
+        $this->sell = $sell;
+
+        return $this;
+    }
+
+
+    public function __construct (int $number_reservation, \datetime $sell){
+        $this->number_reservation = $number_reservation;
+        $this->sell = $sell;
+    }
+
     
 }
