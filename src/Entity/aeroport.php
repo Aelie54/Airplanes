@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping as ORM ;
 */
 final class Aeroport {
 
+    /**
+     * @ORM\Column(type="integer")
+     */
     private string $id;
     
 }
