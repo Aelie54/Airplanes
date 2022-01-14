@@ -84,7 +84,10 @@ final class Flight {
      */
     private Reservation $number_reservation ;
 
+
     public function __construct (int $id, int $id_beginning, int $id_finally, \datetime $beginning, \datetime $finally){
+
+        
 
     }
 
