@@ -4,19 +4,19 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM ;
 
-/** @ORM\Entity */
+/** @ORM\Entity 
+ * @ORM\Table(name="ecommerce_products",uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"passeport_number", "ticket_number"})})
+*/
 final class Reservation {
 
 
     /**
-     * @Entity
-     * @Table(name="ecommerce_products",uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"name", "email"})})
+     * @ORM\Column(type ="integer")
      */
     private int $passeport_number;
 
     /**
-     * @Entity
-     * @Table(name="ecommerce_products",uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"name", "email"})})
+     * @ORM\Column(type ="integer")
      */
     private int $ticket_number ;
 
