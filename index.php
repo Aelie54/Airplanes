@@ -2,7 +2,6 @@
 namespace App;
 require_once('vendor/autoload.php');
 require "bootstrap.php";
-//define('null', null); //use Doctrine\ORM\Mapping as ORM ;
 use App\Entity\Airport;
 use App\Entity\Flight;
 use App\Entity\Reservation;

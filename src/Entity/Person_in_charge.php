@@ -35,7 +35,7 @@ final class Person_in_charge extends User {
 
 
 
-    public function __construct(user $id, user $firstname, user $lastname, int $badge_number){
+    public function __construct(int $id, string $firstname, string $lastname, int $badge_number){
         parent::__construct($id, $firstname, $lastname);
         $this->badge_number = $badge_number;
     }

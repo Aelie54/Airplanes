@@ -18,7 +18,7 @@ class User {
     /**
      * @ORM\Column(type="string")
      */
-    private string $name ;
+    private string $lastname ;
 
     /**
      * @ORM\Column(type="string")
@@ -39,7 +39,7 @@ class User {
      */ 
     public function getName()
     {
-        return $this->name;
+        return $this->lastname;
     }
 
     /**
@@ -47,9 +47,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setName($name)
+    public function setName($lastname)
     {
-        $this->name = $name;
+        $this->lastname = $lastname;
 
         return $this;
     }

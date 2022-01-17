@@ -24,13 +24,13 @@ final class Ticket {
 
     /**
      * 
-     * @ORM\Column(type ="float")
+     * @ORM\Column(type ="float", nullable="NULL")
      */
     private float $price;
 
     /**
      * 
-     * @ORM\Column(type ="boolean")
+     * @ORM\Column(type ="boolean", nullable="NULL")
      */
     private bool $extras ;
     
@@ -127,11 +127,11 @@ final class Ticket {
     private Reservation $number_reservation ;
 
     
-    public function __construct (Reservation $number_reservation, int $num_ticket, int $num_passeport){
+    public function __construct (Reservation $number_reservation, int $num_ticket, int $passeport_number){
         
         $this->number_reservation = $number_reservation;
-        $this -> $num_ticket = $num_ticket;
-        $this -> $num_passeport = $num_passeport;
+        $this -> num_ticket = $num_ticket;
+        $this -> passeport_number = $passeport_number;
 
     }
 
