@@ -26,7 +26,7 @@ final class Stopover {
 
     /**
      * 
-     * @ORM\Column(type ="datetime")
+     * @ORM\Column(type="datetime")
      */
      private \DateTime $arrive ;
 
@@ -52,7 +52,7 @@ final class Stopover {
     
     /**
      * 
-     * @ORM\Column(type ="datetime")
+     * @ORM\Column(type="datetime")
      */
     private \DateTime $departure ;
 

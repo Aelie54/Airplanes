@@ -15,13 +15,13 @@ final class Flight {
 
     /**
      * 
-     * @ORM\Column(type ="datetime")
+     * @ORM\Column(type="datetime")
      */
     private \DateTime $beginning ;
 
     /**
      * 
-     * @ORM\Column(type ="datetime")
+     * @ORM\Column(type="datetime")
      */
     private \DateTime $finally ;
 
