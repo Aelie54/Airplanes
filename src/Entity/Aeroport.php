@@ -17,7 +17,7 @@ final class Aeroport {
     private int $id;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string")
      */
     private string $street;
 

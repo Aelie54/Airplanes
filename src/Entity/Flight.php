@@ -86,7 +86,7 @@ final class Flight {
     public function __construct (int $id_flight, aeroport $id_beginning, 
     aeroport $id_finally, \DateTime $beginning, \DateTime $finally){
 
-        $this -> id_flight = $id_flight;
+        $this-> id_flight = $id_flight;
         $this-> id_beginning = $id_beginning;
         $this-> id_finally = $id_finally;
         $this-> beginning = $beginning;
