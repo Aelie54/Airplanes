@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM ;
 
 /** @ORM\Entity 
@@ -85,7 +83,8 @@ final class Flight {
     private aeroport $id ;
 
 
-    public function __construct (int $id_flight, aeroport $id_beginning, aeroport $id_finally, \DateTime $beginning, \DateTime $finally){
+    public function __construct (int $id_flight, aeroport $id_beginning, 
+    aeroport $id_finally, \DateTime $beginning, \DateTime $finally){
 
         $this -> id_flight = $id_flight;
         $this-> id_beginning = $id_beginning;
