@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM ;
 /** @ORM\Entity 
 * 
 */
-final class FLight_passenger {
+final class Flight_passenger {
 
     /**
      * @ORM\Id

@@ -51,5 +51,11 @@ final class Aeroport {
 
         return $this;
     }
+    
 
+    public function __construct (int $id){
+
+        $this -> id = $id ;
+
+    }
 }
