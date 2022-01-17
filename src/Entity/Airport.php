@@ -5,23 +5,22 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM ;
 
 /** @ORM\Entity 
- * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"id"})})
+ * 
 */
-final class Aeroport {
+final class Airport {
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private int $id;
+    private int $id_airport;
 
     /**
      * @ORM\Column(type="string")
      */
     private string $street;
 
-    
 
     /**
      * Get the value of id
@@ -53,9 +52,10 @@ final class Aeroport {
     }
     
 
-    public function __construct (int $id){
+    public function __construct (int $id, string $street){
 
-        $this -> id = $id ;
+        $this -> id_airport = $id ;
+        $this -> street = $street;
 
     }
 }

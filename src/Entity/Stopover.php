@@ -79,19 +79,19 @@ final class Stopover {
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Aeroport")
-     * @ORM\JoinColumn(name="id_aeroport", referencedColumnName="$id")
+     * @ORM\ManyToOne(targetEntity="Airport")
+     * @ORM\JoinColumn(name="id_airport", referencedColumnName="id_airport")
      */
-    private aeroport $id ;
+    private Airport $id_airport ;
 
     /**
-     * @ORM\ManyToMany(targetEntity="FLight")
-     * @ORM\JoinColumn(name="id_flight", referencedColumnName="$id_flight")
+     * @ORM\ManyToOne(targetEntity="FLight")
+     * @ORM\JoinColumn(name="id_flight", referencedColumnName="id_flight")
      */
-    private aeroport $id_flight ;
+    private Flight $id_flight ;
 
 
-    public function __construct (int $id_stopover, aeroport $id, \DateTime $arrive, \DateTime $departure){
+    public function __construct (int $id_stopover, airport $id, \DateTime $arrive, \DateTime $departure){
 
         $this-> id_stopover = $id_stopover ;
         $this-> id = $id ;

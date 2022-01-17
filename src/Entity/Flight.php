@@ -3,7 +3,6 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM ;
 
 /** @ORM\Entity 
- * @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"id"})})
 */
 final class Flight {
 
@@ -77,14 +76,20 @@ final class Flight {
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="Aeroport")
-     * @ORM\JoinColumn(name="id_aeroport", referencedColumnName="$id")
+     * @ORM\ManyToOne(targetEntity="Airport")
+     * @ORM\JoinColumn(name="id_beginning", referencedColumnName="id_airport")
      */
-    private aeroport $id ;
+    private Airport $id_beginning;
+
+        /**
+     * @ORM\ManyToOne(targetEntity="Airport")
+     * @ORM\JoinColumn(name="id_finally", referencedColumnName="id_airport")
+     */
+    private Airport $id_finally;
 
 
-    public function __construct (int $id_flight, aeroport $id_beginning, 
-    aeroport $id_finally, \DateTime $beginning, \DateTime $finally){
+    public function __construct (int $id_flight, Airport $id_beginning, 
+    Airport $id_finally, \DateTime $beginning, \DateTime $finally){
 
         $this-> id_flight = $id_flight;
         $this-> id_beginning = $id_beginning;

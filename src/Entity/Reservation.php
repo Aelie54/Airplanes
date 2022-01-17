@@ -53,11 +53,11 @@ final class Reservation {
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="id", referencedColumnName="$id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */
-    private user $id ;
+    private User $id ;
 
-    public function __construct (user $id, int $number_reservation, 
+    public function __construct (User $id, int $number_reservation, 
     \datetime $sell){
         $this->id = $id;
         $this->number_reservation = $number_reservation;

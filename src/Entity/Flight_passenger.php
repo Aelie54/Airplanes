@@ -17,13 +17,13 @@ final class Flight_passenger {
 
     /**
      * @ORM\ManyToOne(targetEntity="Ticket")
-     * @ORM\JoinColumn(name="num_ticket", referencedColumnName="$num_ticket")
+     * @ORM\JoinColumn(name="num_ticket", referencedColumnName="ticket_number")
      */
     private Ticket $num_ticket;
 
     /**
      * @ORM\ManyToOne(targetEntity="FLight")
-     * @ORM\JoinColumn(name="id_flight", referencedColumnName="$id_flight")
+     * @ORM\JoinColumn(name="id_flight", referencedColumnName="id_flight")
      */
     private Flight $id_flight;
     

@@ -5,9 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM ;
 
 /** @ORM\Entity 
-* @ORM\Table(uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"id"})})
 */
-final class User {
+class User {
 
     /**
      * @ORM\Id
