@@ -3,7 +3,6 @@
 namespace App\Traits;
 use Doctrine\ORM\Mapping as ORM ;
 
-/** @ORM\MappedSuperclass */
 trait Nationality {
 
     /**

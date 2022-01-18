@@ -76,11 +76,12 @@ class User {
         return $this;
     }
 
-    public function __construct (int $id, string $firstname, string $lastname){
+    public function __construct (int $id, string $firstname, string $lastname, string $nationality){
 
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
+        $this->nationality = $nationality;
         
     }
 }

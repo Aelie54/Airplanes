@@ -55,10 +55,11 @@ final class Airport {
     }
     
 
-    public function __construct (int $id, string $street){
+    public function __construct (int $id, string $street, string $nationality){
 
         $this -> id_airport = $id ;
         $this -> street = $street;
+        $this -> nationality = $nationality;
 
     }
 }

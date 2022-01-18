@@ -9,21 +9,22 @@ use App\Entity\Ticket;
 use App\Entity\User; 
 use \DateTime;
 
-$user1 = new User(3, "amelie", "klein");
+$nationality1= "french";
+$user1 = new User(3, "amelie", "klein", $nationality1);
     $entityManager->persist($user1);
 
-    $user2 = new User(4, "LB", "Al", "Français");
+    $user2 = new User(4, "LB", "Al", $nationality1);
     $entityManager->persist($user2);
 
 $street1 = "Lyon"; 
 $street2 = "Nancy"; 
 
-$a1 = new Airport(3, $street1);
+$a1 = new Airport(3, $street1, $nationality1);
     $entityManager->persist($a1);
-$a2 = new Airport(4, $street2);
+$a2 = new Airport(4, $street2, $nationality1);
     $entityManager->persist($a2);
 
-    $airport2 = new Airport(9, $street2, "Canada");
+    $airport2 = new Airport(9, $street2, $nationality1);
         $entityManager->persist($airport2);
 
 $date2= new DateTime('2022-04-30 04:30:00');
@@ -32,7 +33,7 @@ $date2= new DateTime('2022-04-30 04:30:00');
 $date1= new DateTime('2022-03-30 23:30:00');
     echo $date1->format('Y-m-d H:i:s') . "\n"."<br>";
 
-$avion = new Flight(4, $a1, $a2, $date1, $date2);
+$avion = new Flight(4, $a1, $a2, $date1, $date2, $nationality1);
     $entityManager->persist($avion);
 
     $avion2 = new Flight(4, $a1, $a2, $date1, $date2, "français");
