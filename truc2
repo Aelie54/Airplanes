@@ -1,0 +1,27 @@
+    <?php
+    namespace App\Router;
+
+    require_once('vendor/autoload.php'); 
+
+    $router = new Router($_GET['url']) ;
+
+    $router->get('/', function(){ echo'Homepage';});
+
+    $router->get('/posts', function(){ echo'Tous les articles';});
+
+    $router->get('/posts:slug-:id', function($slug, $id){ echo "Article $slug : id";});
+
+    $router->get('/posts/:id', function($id){ 
+
+        ?> <form action="" method="post">
+            <input type="text" name="name">
+            <button type="submit"> Envoyer ></button>
+        </form> <?php
+
+    });
+
+    $router->post('/posts/:id', function($id){ 
+        echo'poster article ' . $id . '<pre>' . print_r($_POST, true).'<\pre>';
+    });
+
+    $router->run();

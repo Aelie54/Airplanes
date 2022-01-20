@@ -1,42 +1,28 @@
 <?php
 namespace App\Router;
-use App\Router\RouterException;
 
 class Router{
-    private $url;
-    private $routes=[];
 
-    public function __construct($url){
-        $this->url = $url;
+    public string $url;
+    public array $routes = [];
+    
+    public function __construct(string $url)
+    {
+        $this->url = trim($url, '/');
+        
     }
 
-    public function get($path, $callable){
-        $route = new Route($path, $callable);
-        $this->routes['GET'] = $route;
+    public function get(string $path, string $action)
+    {
+        $this->routes["GET"][] = new Route($path, $action);
     }
 
-    public function post($path, $callable){
-        $route = new Route($path, $callable);
-        $this->routes['POST'] = $route;
-    }
-
-    public function run(){
-    // echo '<pre>';// echo print_r($this->routes);// echo '<pre>';
-
-        if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
-
-            throw new RouterException('REQUEST _METHOD does not exist');
-
+    public function run()
+    {
+        foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route) {
+           if ($route->matches($this->url)) {
+               $route->execute();
+           }
         }
-
-        foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
-            if ($route->match($this->url)){
-                return $route->call();
-            }
-        }
-
-        throw new RouterException('No matching routes');
-
     }
-
 }
