@@ -32,6 +32,7 @@ class ComposerStaticInit2d66610fba7ef4a510f376d1060ee3d9
             'Symfony\\Contracts\\Cache\\' => 24,
             'Symfony\\Component\\VarExporter\\' => 30,
             'Symfony\\Component\\String\\' => 25,
+            'Symfony\\Component\\Serializer\\' => 29,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Cache\\' => 24,
         ),
@@ -106,6 +107,10 @@ class ComposerStaticInit2d66610fba7ef4a510f376d1060ee3d9
         'Symfony\\Component\\String\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/string',
+        ),
+        'Symfony\\Component\\Serializer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/serializer',
         ),
         'Symfony\\Component\\Console\\' => 
         array (

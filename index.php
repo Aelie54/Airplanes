@@ -14,11 +14,18 @@ AppController::index();  ///comme si collais le code car statique
 
 $router = new Router($_GET['url']);
 
+
 $router->get('/', 'App\Controllers\AppController@index');
-
 $router->get('/utilisateur', 'App\Controllers\AppController@index');
-
 $router->get('/bonjour', 'App\Controllers\AppController@hello');
+
+$router->get('/add_airport', 'App\Controllers\AirportController@index');
+$router->get('/airport/:airport_id_url', 'App\Controllers\AirportController@show');
+$router->get('/airports', 'App\Controllers\AirportController@showall');
+
+$router->post('/newairport', 'App\Controllers\AirportController@add');
+
+
 
 $router->run();
 

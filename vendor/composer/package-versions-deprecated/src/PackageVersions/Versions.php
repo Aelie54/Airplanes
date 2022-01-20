@@ -60,10 +60,11 @@ final class Versions
   'symfony/polyfill-php72' => 'v1.24.0@9a142215a36a3888e30d0a9eeea9766764e96976',
   'symfony/polyfill-php73' => 'v1.24.0@cc5db0e22b3cb4111010e48785a97f670b350ca5',
   'symfony/polyfill-php80' => 'v1.24.0@57b712b08eddb97c762a8caa32c84e037892d2e9',
+  'symfony/serializer' => 'v5.4.2@2dba9731463e0bb4fa9568ce67887ed6fa08e9bc',
   'symfony/service-contracts' => 'v2.5.0@1ab11b933cd6bc5464b08e81e2c5b07dec58b0fc',
   'symfony/string' => 'v5.4.2@e6a5d5ecf6589c5247d18e0e74e30b11dfd51a3d',
   'symfony/var-exporter' => 'v5.4.2@2360c8525815b8535caac27cbc1994e2fa8644ba',
-  '__root__' => 'dev-master@91914a43841dafefe64777a742a73a4cbb1b61da',
+  '__root__' => 'dev-master@865f4b958cf71579950f8012cf8b33c810c9eaf8',
 );
 
     private function __construct()

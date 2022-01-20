@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '865f4b958cf71579950f8012cf8b33c810c9eaf8',
         'name' => '__root__',
         'dev' => true,
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '865f4b958cf71579950f8012cf8b33c810c9eaf8',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -290,6 +290,15 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-php80',
             'aliases' => array(),
             'reference' => '57b712b08eddb97c762a8caa32c84e037892d2e9',
+            'dev_requirement' => false,
+        ),
+        'symfony/serializer' => array(
+            'pretty_version' => 'v5.4.2',
+            'version' => '5.4.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/serializer',
+            'aliases' => array(),
+            'reference' => '2dba9731463e0bb4fa9568ce67887ed6fa08e9bc',
             'dev_requirement' => false,
         ),
         'symfony/service-contracts' => array(
