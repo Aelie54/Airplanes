@@ -9,12 +9,14 @@ class Router{
     public function __construct(string $url)
     {
         $this->url = trim($url, '/');
-        
     }
 
-    public function get(string $path, string $action)
-    {
+    public function get(string $path, string $action){
         $this->routes["GET"][] = new Route($path, $action);
+    }
+
+    public function post(string $path, string $action){
+        $this->routes["POST"][] = new Route($path, $action);
     }
 
     public function run()
@@ -25,4 +27,5 @@ class Router{
            }
         }
     }
+
 }

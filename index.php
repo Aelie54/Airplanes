@@ -19,17 +19,20 @@ $router->get('/', 'App\Controllers\AppController@index');
 $router->get('/utilisateur', 'App\Controllers\AppController@index');
 $router->get('/bonjour', 'App\Controllers\AppController@hello');
 
-$router->get('/add_airport', 'App\Controllers\AirportController@index');
+
 $router->get('/airport/:airport_id_url', 'App\Controllers\AirportController@show');
 $router->get('/airports', 'App\Controllers\AirportController@showall');
 
-$router->post('/newairport', 'App\Controllers\AirportController@add');
+$router->get('/add_airport', 'App\Controllers\AirportController@add');
+$router->post('/add_airport', 'App\Controllers\AirportController@add');
 
-
+$router->get('/modify_airport/:id', 'App\Controllers\AirportController@modify');
+$router->post('/modify_airport/did', 'App\Controllers\AirportController@modify');
 
 $router->run();
 
-
+$router->get('/add_airport', 'App\Controllers\AirportController@add');
+$router->post('/add_airport', 'App\Controllers\AirportController@add');
         //var_dump($_GET['url']);
 
         // namespace App;
