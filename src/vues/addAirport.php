@@ -19,7 +19,7 @@ if (array_key_exists("error", $_SESSION)){
 }
 ?>
 
-<form action="/Airplanes/add_airport" method="POST">
+<form action="/Airplanes/addairport" method="POST">
 
     <div>
         <label for="street">Ville :</label>

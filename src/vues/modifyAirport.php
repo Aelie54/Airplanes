@@ -16,7 +16,7 @@ if (array_key_exists("error", $_SESSION)){
 ?>
 
 
-<form action='<?="/Airplanes/modify_airport/$sId"?>' method="POST">
+<form action='<?="/Airplanes/modifyairport/$sId"?>' method="POST">
 
     <div>
         <label for="street">Ville :</label>
@@ -27,7 +27,7 @@ if (array_key_exists("error", $_SESSION)){
         <label for="street">Nationality :</label>
        <input type="text" id="nationality" name="nationality" value="<?=$oAirport->getNationality()?>" />
     </div>
-
+    
     <div class="button">
        <button type="submit">Envoyer</button>
     </div>       

@@ -20,19 +20,19 @@ $router->get('/utilisateur', 'App\Controllers\AppController@index');
 $router->get('/bonjour', 'App\Controllers\AppController@hello');
 
 
-$router->get('/airport/:airport_id_url', 'App\Controllers\AirportController@show');
+$router->get('/airport/:id', 'App\Controllers\AirportController@show');
 $router->get('/airports', 'App\Controllers\AirportController@showall');
 
-$router->get('/add_airport', 'App\Controllers\AirportController@add');
-$router->post('/add_airport', 'App\Controllers\AirportController@add');
+$router->get('/addairport', 'App\Controllers\AirportController@add');
+$router->post('/addairport', 'App\Controllers\AirportController@add');
 
-$router->get('/modify_airport/:id', 'App\Controllers\AirportController@modify');
-$router->post('/modify_airport/:id', 'App\Controllers\AirportController@modify');
+$router->get('/modifyairport/:id', 'App\Controllers\AirportController@modify');
+$router->post('/modifyairport/:id', 'App\Controllers\AirportController@modify');
+
+$router->get('/deleteairport/:id', 'App\Controllers\AirportController@delete');
 
 $router->run();
 
-$router->get('/add_airport', 'App\Controllers\AirportController@add');
-$router->post('/add_airport', 'App\Controllers\AirportController@add');
 
 
         //var_dump($_GET['url']);

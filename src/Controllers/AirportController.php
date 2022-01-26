@@ -21,17 +21,23 @@ class AirportController{
         $entityManager = Em::getEntityManager();
     }
 
-    public function show(string $airport_id_url) { 
+
+
+    public function show(string $sId) { 
 
         $entityManager = Em::getEntityManager();        
 
         $repository = new EntityRepository($entityManager, new ClassMetadata("App\Entity\Airport"));
 
-        $oAirport = $repository->find((int) $airport_id_url);
+        $oAirport = $repository->find((int) $sId);
 
         print($oAirport->getStreet());
+        print("  et  ");
+        print($oAirport->getNationality());
 
     }
+
+
 
     public function showall() { 
 
@@ -56,6 +62,7 @@ class AirportController{
         $entityManager = Em::getEntityManager(); 
         
         foreach (self::NEEDLES as $value) {
+
             if(!array_key_exists($value, $_POST)) {
                 $_SESSION["error"] = "?error=attention à remplir tous les champs";
                 header("location: http://localhost/Airplanes/src/vues/addAirport.php");
@@ -63,11 +70,11 @@ class AirportController{
             }
             
             $_POST[$value] = htmlentities(strip_tags($_POST[$value])) ;
+            $new_airport = new Airport ($_POST['street'], $_POST['nationality']) ;
             
         }
         
         //var_dump($_POST['street']); die();
-        $new_airport = new Airport ($_POST['street'], $_POST['nationality']) ;
         $entityManager->persist($new_airport);
         $entityManager->flush();
 
@@ -75,40 +82,61 @@ class AirportController{
 
     }
 
+
+
     public function modify(string $sId) { 
        
         $entityManager = Em::getEntityManager();        
         $repository = new EntityRepository($entityManager, new ClassMetadata("App\Entity\Airport"));
         
         $oAirport = $repository->find((int) $sId);
-        $AirportDatas = ["street", "nationality"];
-
-        foreach (self::NEEDLES as $value){
-            $getteur = 'get'. ucfirst($value);
-            $AirportDatas[$value] = $oAirport->$getteur();
-            $_POST[$value] = htmlentities(strip_tags($_POST[$value])) ;
-            //echo"hello";
-        };
-
+        
         if(!empty($_POST)){
+            
+            //je verifie que mes clés existe selon needles
             foreach (self::NEEDLES as $value){
                 $exist = array_key_exists($value, $_POST);
                 if($exist === false){
                     echo "erreur" ;
+                    die;
                 } 
+
+                //je securise mes $_post
+                $_POST[$value] = trim(htmlentities(strip_tags($_POST[$value]))) ;
             }
+
+            if($_POST["street"] !== $oAirport->getStreet()){
+                $oAirport->setStreet($_POST['street']); 
+            }
+
+            if($_POST["nationality"] !== $oAirport->getNationality()){
+                $oAirport->setNationality($_POST['nationality']);  
+            }
+
+            $entityManager->persist($oAirport);
+            $entityManager->flush();
+
         }
         
-        $oAirport->setStreet($_POST['street']); 
-        $oAirport->setNationality($_POST['nationality']);  
-        
-        $entityManager->persist($oAirport);
-        $entityManager->flush();
-        
-        $AirportDatas["id"] = $oAirport->getId();
 
         include __DIR__."/../vues/modifyAirport.php" ;
 
     }
+
+
+
+    public function delete(string $sId)
+    {
+        $entityManager = Em::getEntityManager();        
+        $repository = new EntityRepository($entityManager, new ClassMetadata("App\Entity\Airport"));
+        
+        $oAirport = $repository->find($sId);
+
+        $entityManager->remove($oAirport);
+
+        $entityManager->flush();
+
+    }
+    
 
 }
