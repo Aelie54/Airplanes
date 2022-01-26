@@ -27,12 +27,14 @@ $router->get('/add_airport', 'App\Controllers\AirportController@add');
 $router->post('/add_airport', 'App\Controllers\AirportController@add');
 
 $router->get('/modify_airport/:id', 'App\Controllers\AirportController@modify');
-$router->post('/modify_airport/did', 'App\Controllers\AirportController@modify');
+$router->post('/modify_airport/:id', 'App\Controllers\AirportController@modify');
 
 $router->run();
 
 $router->get('/add_airport', 'App\Controllers\AirportController@add');
 $router->post('/add_airport', 'App\Controllers\AirportController@add');
+
+
         //var_dump($_GET['url']);
 
         // namespace App;

@@ -5,6 +5,9 @@ use App\Traits\Nationality ;
 use Doctrine\ORM\Mapping as ORM ;
 
 /** @ORM\Entity 
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="User", type="string")
+ * @ORM\DiscriminatorMap({"client" = "Client", "person_in_charge" = "Person_in_charge"})
 */
 class User {
 

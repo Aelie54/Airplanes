@@ -64,7 +64,6 @@ class AirportController{
             
             $_POST[$value] = htmlentities(strip_tags($_POST[$value])) ;
             
-            
         }
         
         //var_dump($_POST['street']); die();
@@ -82,20 +81,34 @@ class AirportController{
         $repository = new EntityRepository($entityManager, new ClassMetadata("App\Entity\Airport"));
         
         $oAirport = $repository->find((int) $sId);
-        $AirportDatas = [];
+        $AirportDatas = ["street", "nationality"];
 
         foreach (self::NEEDLES as $value){
             $getteur = 'get'. ucfirst($value);
             $AirportDatas[$value] = $oAirport->$getteur();
+            $_POST[$value] = htmlentities(strip_tags($_POST[$value])) ;
+            //echo"hello";
+        };
+
+        if(!empty($_POST)){
+            foreach (self::NEEDLES as $value){
+                $exist = array_key_exists($value, $_POST);
+                if($exist === false){
+                    echo "erreur" ;
+                } 
+            }
         }
         
+        $oAirport->setStreet($_POST['street']); 
+        $oAirport->setNationality($_POST['nationality']);  
+        
+        $entityManager->persist($oAirport);
+        $entityManager->flush();
+        
         $AirportDatas["id"] = $oAirport->getId();
-        $_SESSION["AirportDatas"] = $AirportDatas;
 
-        header("location: http://localhost/Airplanes/src/vues/modifyAirport.php");
+        include __DIR__."/../vues/modifyAirport.php" ;
+
     }
-    
 
 }
-
-

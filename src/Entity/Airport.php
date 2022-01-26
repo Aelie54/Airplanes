@@ -30,7 +30,7 @@ final class Airport {
      */ 
     public function getId()
     {
-        return $this->id;
+        return $this->id_airport;
     }
 
     
@@ -53,7 +53,7 @@ final class Airport {
 
         return $this;
     }
-    
+
 
     public function __construct (string $street, string $nationality){
 

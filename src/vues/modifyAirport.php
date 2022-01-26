@@ -1,7 +1,3 @@
-<?PHP
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,25 +15,25 @@ if (array_key_exists("error", $_SESSION)){
 }
 ?>
 
-<form action="/Airplanes/modify_airport" method="POST">
+
+<form action='<?="/Airplanes/modify_airport/$sId"?>' method="POST">
 
     <div>
         <label for="street">Ville :</label>
-       <input type="text" id="street" name="street" value="<?php 
-                echo isset($_SESSION['AirportDatas']['street']) ? $_SESSION['AirportDatas']['street'] : ""; ?>" />
-    </div>>
+       <input type="text" id="street" name="street" value="<?=$oAirport->getStreet()?>" />
+    </div>
 
     <div>
         <label for="street">Nationality :</label>
-       <input type="text" id="nationality" name="nationality" value="<?php 
-                echo isset($_SESSION['AirportDatas']['nationality']) ? $_SESSION['AirportDatas']['nationality'] : ""; ?>" />
+       <input type="text" id="nationality" name="nationality" value="<?=$oAirport->getNationality()?>" />
     </div>
 
     <div class="button">
        <button type="submit">Envoyer</button>
-    </div>
+    </div>       
 
 </fom>
+
 
 </body>
 
