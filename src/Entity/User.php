@@ -31,12 +31,12 @@ class User {
     private string $firstname;
     
     /**
-     * @ORM\Column(NAME="email", type="string")
+     * @ORM\Column(name="email", type="string")
      */
     private string $email;
 
    /**
-     * @ORM\Column(NAME="password", type="string", length="255")
+     * @ORM\Column(name="password", type="string", length="255")
      */
     private string $password;
 
