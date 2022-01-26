@@ -30,6 +30,16 @@ class User {
      */
     private string $firstname;
     
+    /**
+     * @ORM\Column(NAME="email", type="string")
+     */
+    private string $email;
+
+   /**
+     * @ORM\Column(NAME="password", type="string", length="255")
+     */
+    private string $password;
+
 
     /**
      * Get the value of id
@@ -79,12 +89,53 @@ class User {
         return $this;
     }
 
-    public function __construct (int $id, string $firstname, string $lastname, string $nationality){
+    public function __construct (int $id, string $firstname, string $lastname, string $nationality, string $email, string $password){
 
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->nationality = $nationality;
+        $this->email = $email;
+        $this->password= password_hash($password, PASSWORD_DEFAULT); ///PAUUUUUULIIIIINEUUH
         
+    }
+
+
+    /**
+     * Get the value of password
+     */ 
+    public function getPassword():string
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set the value of password
+     * @return  self
+     */ 
+    public function setPassword(string $password):self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     */ 
+    public function getEmail():string
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     * @return  self
+     */ 
+    public function setEmail(string $email):self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }

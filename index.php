@@ -9,10 +9,11 @@ require_once("vendor/autoload.php");
 
 AppController::index();  ///comme si collais le code car statique
 
-
 /// mes routes que j'ai definies : ce qu'on attrape dans le lien et l'action derrière
 
 $router = new Router($_GET['url']);
+
+
 
 
 $router->get('/', 'App\Controllers\AppController@index');
@@ -30,6 +31,10 @@ $router->get('/modifyairport/:id', 'App\Controllers\AirportController@modify');
 $router->post('/modifyairport/:id', 'App\Controllers\AirportController@modify');
 
 $router->get('/deleteairport/:id', 'App\Controllers\AirportController@delete');
+
+$router->get('/login', 'App\Controllers\AppController@login');
+$router->post('/login', 'App\Controllers\AppController@login');
+
 
 $router->run();
 

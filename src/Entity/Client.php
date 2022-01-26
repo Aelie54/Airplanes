@@ -10,8 +10,8 @@ final class Client extends User {
      */
     private int $number ;
 
-    public function __construct(int $id, string $firstname, string $lastname, int $badge_number, string $nationality){
-        parent::__construct($id, $firstname, $lastname, $nationality);
+    public function __construct(int $id, string $firstname, string $lastname, int $badge_number, string $nationality, string $email, string $password){
+        parent::__construct($id, $firstname, $lastname, $nationality, $email, $password);
         $this->badge_number = $badge_number;
     }
 
