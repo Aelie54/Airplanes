@@ -1,6 +1,9 @@
+
 <?php
 
-namespace App;
+session_start();
+
+require_once('vendor/autoload.php');
 
 use App\Controllers\AppController;
 use App\Router\Router;
@@ -12,33 +15,6 @@ AppController::index();  ///comme si collais le code car statique
 /// mes routes que j'ai definies : ce qu'on attrape dans le lien et l'action derrière
 
 $router = new Router($_GET['url']);
-
-
-
-
-$router->get('/', 'App\Controllers\AppController@index');
-$router->get('/utilisateur', 'App\Controllers\AppController@index');
-$router->get('/bonjour', 'App\Controllers\AppController@hello');
-
-
-$router->get('/airport/:id', 'App\Controllers\AirportController@show');
-$router->get('/airports', 'App\Controllers\AirportController@showall');
-
-$router->get('/addairport', 'App\Controllers\AirportController@add');
-$router->post('/addairport', 'App\Controllers\AirportController@add');
-
-$router->get('/modifyairport/:id', 'App\Controllers\AirportController@modify');
-$router->post('/modifyairport/:id', 'App\Controllers\AirportController@modify');
-
-$router->get('/deleteairport/:id', 'App\Controllers\AirportController@delete');
-
-$router->get('/login', 'App\Controllers\AppController@login');
-$router->post('/login', 'App\Controllers\AppController@login');
-
-
-$router->run();
-
-
 
         //var_dump($_GET['url']);
 
@@ -89,3 +65,47 @@ $router->run();
         //     $entityManager->persist($tick);
 
         //     $entityManager->flush();
+
+
+        if (!empty($_SESSION['type'])) {
+                $_SESSION['type'] = "";
+            }
+                switch ($_SESSION['type']) {
+                
+                        case 'user':
+
+                        $router->get('/', 'App\Controllers\AppController@index');
+                        $router->get('/utilisateur', 'App\Controllers\AppController@index');
+                        $router->get('/bonjour', 'App\Controllers\AppController@hello');
+                        
+                        
+                        $router->get('/airport/:id', 'App\Controllers\AirportController@show');
+                        $router->get('/airports', 'App\Controllers\AirportController@showall');
+
+                        $router->get('/login', 'App\Controllers\AppController@login');
+                        $router->post('/login', 'App\Controllers\AppController@login');
+
+                    break;
+            
+                        case 'person_in_charge':
+
+                        $router->get('/addairport', 'App\Controllers\AirportController@add');
+                        $router->post('/addairport', 'App\Controllers\AirportController@add');
+
+                        $router->get('/modifyairport/:id', 'App\Controllers\AirportController@modify');
+                        $router->post('/modifyairport/:id', 'App\Controllers\AirportController@modify');
+
+                        $router->get('/deleteairport/:id', 'App\Controllers\AirportController@delete');
+
+
+                    break;
+            
+                default:
+
+                $router->get('/login', 'App\Controllers\AppController@login');
+                $router->post('/login', 'App\Controllers\AppController@login');
+
+            }
+            
+
+            $router->run();
